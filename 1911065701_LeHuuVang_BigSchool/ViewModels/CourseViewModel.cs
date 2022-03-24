@@ -12,15 +12,17 @@ namespace _1911065701_LeHuuVang_BigSchool.ViewModels
         [Required]
         public string Place { get; set; }
         [Required]
+        [FutureDate]
         public string Date { get; set; }
         [Required]
+        [ValidTime]
         public string Time { get; set; }
         [Required]
         public byte Category { get; set;}
         public IEnumerable<Category> Categories { get; set; }
         public DateTime GetDataTime()
         {        
-            return DateTime.Parse(String.Format("{0: dd-MM-yyyy} {1}", Date , Time));           
+            return DateTime.Parse(String.Format("{0} {1}", Date , Time));           
         }
     }
 }

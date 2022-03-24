@@ -1,16 +1,17 @@
 ﻿@model _1911065701_LeHuuVang_BigSchool.ViewModels.CourseViewModel
+
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2> 
-<form>
-    @using (Html.BeginForm("Create", "Courses")) { 
+<h2>Create</h2>
+@using (Html.BeginForm("Create", "Courses"))
+{
     <div class="form-group">
         @Html.LabelFor(m => m.Place)
         @Html.TextBoxFor(m => m.Place, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m=> m.Place)
+        @Html.ValidationMessageFor(m => m.Place)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Date)
@@ -23,14 +24,13 @@
         @Html.ValidationMessageFor(m => m.Time)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Category)
+        @Html.LabelFor(m => m.Categories)
         @Html.DropDownListFor(m => m.Category, new SelectList(Model.Categories, "Id", "Name"), "", new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Category)
     </div>
     <button type="submit" value="Save" class="btn btn-primary">Save</button>
-    }
-    <div class="form-group"></div>
-    <div class="form-group"></div>
-    <div class="form-group"></div>
-</form>
-
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}
