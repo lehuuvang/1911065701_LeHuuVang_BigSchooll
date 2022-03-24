@@ -56,5 +56,23 @@ namespace _1911065701_LeHuuVang_BigSchool.Controllers
             }
             
         }
+        [Authorize]
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
+
+            var courses = _dbContext.Attendances
+                .Where(c => c.AttendeeId == userId)
+                .Select(a => a.Course)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category)
+                .ToList();
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = courses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
+        }
     }
 }

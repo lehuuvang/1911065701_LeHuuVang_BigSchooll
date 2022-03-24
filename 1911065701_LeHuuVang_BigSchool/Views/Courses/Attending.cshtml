@@ -1,8 +1,9 @@
 ﻿@model _1911065701_LeHuuVang_BigSchool.ViewModels.CoursesViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Attending";
 }
-<div class="row">
+
+<h2>Attending</h2>
     <ul class="course">
         @foreach (var course in Model.UpcommingCourses)
         {         
@@ -34,37 +35,4 @@
             </li>
         }
     </ul>
-@section scripts
- {
-    <script>
-        $(document).ready(function(){
-            $(".js-toggle-attendance").click(function(e){
-                var button = $ (e.target);
-                $.post("/api/attendances", {courseId: button.attr("data-course-id") })
-                .done(function(){
-                    button
-                    .removeClass("btn-default")
-                    .addClass("btn-info")
-                    .text("Going");
-                })
-                .fail(function() {
-                    alert("Something failed !");
-                });
-            });
-        $(".js-toggle-follow").click(function (e) {
-                var button = $(e.target);
-                $.post("/api/followings", { followeeId: button.attr("data-user-id") })
-                    .done(function () {
-                        button
-                            .removeClass("btn-default")
-                            .addClass("btn-info")
-                            .text("following");
-                    })
-                    .fail(function () {
-                        alert("Something failed !");
-                    });
-            });
-        });
-    </script>
- }
-</div>
+
