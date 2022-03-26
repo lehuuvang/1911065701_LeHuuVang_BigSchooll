@@ -66,3 +66,11 @@ textarea {
         .course > li:hover .action {
             display: block;
         }
+        .course > li .action {
+            position: absolute;
+            left: 70px;
+        }
+
+        .course > li:hover .action {
+            display: block;
+        }

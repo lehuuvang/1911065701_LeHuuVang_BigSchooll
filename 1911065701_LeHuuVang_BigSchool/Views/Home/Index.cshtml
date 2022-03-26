@@ -46,9 +46,9 @@
                     .removeClass("btn-default")
                     .addClass("btn-info")
                     .text("Going");
-                })
+                })               
                 .fail(function() {
-                    alert("Something failed !");
+                    alert("Khóa học này đã đăng kí !!");
                 });
             });
         $(".js-toggle-follow").click(function (e) {
@@ -59,9 +59,10 @@
                             .removeClass("btn-default")
                             .addClass("btn-info")
                             .text("following");
+                        alert("Đã theo dõi!!");
                     })
                     .fail(function () {
-                        alert("Something failed !");
+                        alert("khóa học này đã theo dõi!!");
                     });
             });
         });
