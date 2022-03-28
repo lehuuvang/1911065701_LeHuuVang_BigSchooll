@@ -20,7 +20,7 @@ namespace _1911065701_LeHuuVang_BigSchool.Controllers
                      select l;
             if (!string.IsNullOrEmpty(timkiem))
             {
-                tk = tk.Where(s => s.LecturerId.Contains(timkiem));
+                tk = tk.Where(s => s.Place.Contains(timkiem));
             }
             return View(tk);
         }
@@ -29,7 +29,7 @@ namespace _1911065701_LeHuuVang_BigSchool.Controllers
             _dbContext = new ApplicationDbContext();
         }
         [Authorize]
-        public ActionResult Index(string timkiem)
+        public ActionResult Index()
         {
             var upcommingCourses = _dbContext.Courses
                 .Include(c => c.Lecturer)

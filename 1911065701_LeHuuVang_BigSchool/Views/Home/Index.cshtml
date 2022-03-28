@@ -6,7 +6,7 @@
     @using (Html.BeginForm())
     {
     <p>
-        @Html.TextBox("timkiem") <input type="submit" value="Tìm Kiếm" placeholder="Nhập để tìm kiếm..." style="margin-top:2%"/>
+        @Html.TextBox("timkiem") <input type="submit" value="Tìm Kiếm" placeholder="Nhập để tìm kiếm..." style="margin-top:2%; margin-right:10%"/>       
     </p>
     }
   <ul class="course">
@@ -22,20 +22,22 @@
                     </div>
                 </div>
                 <div class="details">
+                    <span class="place">
+                        - Nơi làm việc:  @course.Place <br />
+                    </span>
                     <span class="lecturer">
-                        @course.Lecturer.Name
+                        - Tên Giảng Viên:  @course.Lecturer.Name
                     </span>
+
                     @if (Model.ShowAction)
                     {
-                    <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button> <br />
-                    }
+                <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>}
                     <span class="category">
-                        @course.Category.Name
+                        - Ngành:  @course.Category.Name
                     </span>
                     @if (Model.ShowAction)
                     {
-                        <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance"> Going?</button>
-                    }
+                <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance"> Going?</button>}
                 </div>
             </li>
         }
@@ -52,6 +54,7 @@
                     .removeClass("btn-default")
                     .addClass("btn-info")
                     .text("Going");
+                    alert("Đã đăng kí !!");
                 })               
                 .fail(function() {
                     alert("Khóa học này đã đăng kí !!");
