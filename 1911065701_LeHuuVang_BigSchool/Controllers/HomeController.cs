@@ -9,6 +9,7 @@ using System.Data.Entity;
 
 namespace _1911065701_LeHuuVang_BigSchool.Controllers
 {
+    //nộp bài
     public class HomeController : Controller
     {
 
