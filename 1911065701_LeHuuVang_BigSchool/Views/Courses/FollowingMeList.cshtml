@@ -1,11 +1,10 @@
-﻿
-@model _1911065701_LeHuuVang_BigSchool.ViewModels.FollowingViewModel
+﻿@model _1911065701_LeHuuVang_BigSchool.ViewModels.FollowingViewModel
 @{
     ViewBag.Title = "FollowingMeList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>FollowingMeList</h2>
+<h2>Following</h2>
 
 <div class="row">
     <ul class="course">
@@ -13,12 +12,15 @@
         {
             <li>
                 <div class="details">
-                    <span class="lecturer">
-                        @follow.Name
+                    <span>
+                        <br /> 
+                        @follow.Name 
+                        <br />
                     </span>
                 </div>
             </li>
         }
     </ul>
 </div>
+
 

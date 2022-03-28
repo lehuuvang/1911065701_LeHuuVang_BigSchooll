@@ -7,13 +7,13 @@ namespace _1911065701_LeHuuVang_BigSchool.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddNameColumnToApplicationUser : IMigrationMetadata
+    public sealed partial class AddFollowingsTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddNameColumnToApplicationUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddFollowingsTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202203240402131_AddNameColumnToApplicationUser"; }
+            get { return "202203280613358_AddFollowingsTable"; }
         }
         
         string IMigrationMetadata.Source

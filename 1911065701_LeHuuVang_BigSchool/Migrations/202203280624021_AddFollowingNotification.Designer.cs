@@ -7,13 +7,13 @@ namespace _1911065701_LeHuuVang_BigSchool.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class update : IMigrationMetadata
+    public sealed partial class AddFollowingNotification : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(update));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddFollowingNotification));
         
         string IMigrationMetadata.Id
         {
-            get { return "202203240430170_update"; }
+            get { return "202203280624021_AddFollowingNotification"; }
         }
         
         string IMigrationMetadata.Source

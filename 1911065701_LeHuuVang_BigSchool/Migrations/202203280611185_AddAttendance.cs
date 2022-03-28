@@ -10,16 +10,15 @@ namespace _1911065701_LeHuuVang_BigSchool.Migrations
             CreateTable(
                 "dbo.Attendances",
                 c => new
-                    {
-                        CourseId = c.Int(nullable: false),
-                        AttendeeId = c.String(nullable: false, maxLength: 128),
-                    })
+                {
+                    CourseId = c.Int(nullable: false),
+                    AttendeeId = c.String(nullable: false, maxLength: 128),
+                })
                 .PrimaryKey(t => new { t.CourseId, t.AttendeeId })
                 .ForeignKey("dbo.AspNetUsers", t => t.AttendeeId, cascadeDelete: true)
                 .ForeignKey("dbo.Courses", t => t.CourseId)
                 .Index(t => t.CourseId)
                 .Index(t => t.AttendeeId);
-            
         }
         
         public override void Down()

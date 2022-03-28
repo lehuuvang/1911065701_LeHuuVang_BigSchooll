@@ -3,7 +3,7 @@ namespace _1911065701_LeHuuVang_BigSchool.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class update1 : DbMigration
+    public partial class InitialModel : DbMigration
     {
         public override void Up()
         {
