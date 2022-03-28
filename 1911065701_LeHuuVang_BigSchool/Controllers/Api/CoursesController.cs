@@ -21,7 +21,7 @@ namespace _1911065701_LeHuuVang_BigSchool.Controllers.Api
         public IHttpActionResult Cancel(int id)
         {
             var userId = User.Identity.GetUserId();
-            var course = _dbContext.Courses.Single(c => c.Id == id && c.LecturerId == userId);
+            var course = _dbContext.Courses.SingleOrDefault(c => c.Id == id && c.LecturerId == userId);
 
             if (course.IsCanceled)
                 return NotFound();

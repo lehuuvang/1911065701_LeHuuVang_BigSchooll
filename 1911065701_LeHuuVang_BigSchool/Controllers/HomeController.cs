@@ -13,13 +13,23 @@ namespace _1911065701_LeHuuVang_BigSchool.Controllers
     {
 
         private ApplicationDbContext _dbContext;
-
+        
+        public ActionResult Search(string timkiem)
+        {
+            var tk = from l in _dbContext.Courses
+                     select l;
+            if (!string.IsNullOrEmpty(timkiem))
+            {
+                tk = tk.Where(s => s.LecturerId.Contains(timkiem));
+            }
+            return View(tk);
+        }
         public HomeController()
         {
             _dbContext = new ApplicationDbContext();
         }
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(string timkiem)
         {
             var upcommingCourses = _dbContext.Courses
                 .Include(c => c.Lecturer)
@@ -31,6 +41,7 @@ namespace _1911065701_LeHuuVang_BigSchool.Controllers
                 ShowAction = User.Identity.IsAuthenticated
             };
               return View(viewModel);
+
         }
 
         public ActionResult About()

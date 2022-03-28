@@ -3,7 +3,13 @@
     ViewBag.Title = "Home Page";
 }
 <div class="row">
-    <ul class="course">
+    @using (Html.BeginForm())
+    {
+    <p>
+        @Html.TextBox("timkiem") <input type="submit" value="Tìm Kiếm" placeholder="Nhập để tìm kiếm..." style="margin-top:2%"/>
+    </p>
+    }
+  <ul class="course">
         @foreach (var course in Model.UpcommingCourses)
         {         
             <li>

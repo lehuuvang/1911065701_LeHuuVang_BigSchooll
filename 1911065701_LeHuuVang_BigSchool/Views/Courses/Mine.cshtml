@@ -47,9 +47,11 @@
                             url :"/api/courses/"+link.attr("data-course-id"),
                             method:"DELETE"
                         })
+                        
                         .done(function(){
                             link.parents("li").fadeOut(function(){
                                 $(this).remove();
+                                
                                 alert("Xóa Thành công!!");
                             });
                         })

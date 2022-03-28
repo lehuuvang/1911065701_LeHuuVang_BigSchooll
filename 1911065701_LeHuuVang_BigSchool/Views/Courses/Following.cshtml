@@ -1,21 +1,61 @@
-﻿@model IEnumerable<_1911065701_LeHuuVang_BigSchool.Models.Following>
+﻿@model IEnumerable<_1911065701_LeHuuVang_BigSchool.Models.ApplicationUser>
 @{
     ViewBag.Title = "Following";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Following</h2>
-<ul class="following">
-    @foreach (var following in Model)
+
+<ul>
+    @foreach (var viewModel in @Model)
     {
         <li>
-            <div class="details">
-                <span>
-                    @following.Followee.Name 
-                </span>
-            </div>
+            <span style="font-weight:bold">@viewModel.Name</span>
+            <button class="btn btn-info btn-sm js-toggle-follow" data-user-id="@viewModel.Id">
+                Following
+            </button>
+            <br />
+            <br />
         </li>
+
     }
 </ul>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-follow").click(function (e) {
+                var button = $(e.target);
+                if (button.hasClass("btn-default")) {
+                    $.post("/api/followings", { followeeId: button.attr("data-user-id") })
+                        .done(function () {
+                            button
+                                .removeClass("btn-default")
+                                .addClass("btn-info")
+                                .text("Following");
+                        })
+                        .fail(function () {
+                            alert("Something failed!");
+                        });
+                }
+                else {
+                    $.ajax({
+                        url: "/api/followings/" + button.attr("data-user-id"),
+                        method: "DELETE"
+                    })
+                        .done(function () {
+                            button
+                                .removeClass("btn-info")
+                                .addClass("btn-default")
+                                .text("Follow");
+                        })
+                        .fail(function () {
+                            alert("Something failed! (2)");
+                        });
+                }
+            });
+        });
+    </script>
+}
 
 

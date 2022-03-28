@@ -26,6 +26,10 @@ namespace _1911065701_LeHuuVang_BigSchool.ViewModels
         {
             get { return (Id != 0) ? "Update" : "Create"; }
         }
+        //public IEnumerable<Course> UpcommingCourses { get; set; }
+        //public bool ShowAction { get; set; }
+       // public IEnumerable<Following> Followings { get; set; }
+       // public IEnumerable<Attendance> Attendances { get; set; }
         public DateTime GetDataTime()
         {        
             return DateTime.Parse(String.Format("{0} {1}", Date , Time));           
